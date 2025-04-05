@@ -10,4 +10,4 @@ RUN npm install express
 
 EXPOSE 80  
 
-CMD ["node", "server.js"]
+CMD ["node", "server.js"] 
