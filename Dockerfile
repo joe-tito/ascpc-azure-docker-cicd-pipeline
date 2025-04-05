@@ -1,13 +1,17 @@
-FROM node:14  
+FROM node:23-alpine
 
-USER root  
+RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
 
-WORKDIR /app  
+WORKDIR /home/node/app
 
-COPY . .  
+COPY package*.json ./
 
-RUN npm install express
+USER node
 
-EXPOSE 80  
+RUN npm install
 
-CMD ["node", "server.js"] 
+COPY --chown=node:node . .
+
+EXPOSE 80
+
+CMD [ "node", "app.js" ]
