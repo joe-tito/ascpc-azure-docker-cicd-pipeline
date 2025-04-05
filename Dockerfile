@@ -8,6 +8,6 @@ COPY . .
 
 RUN npm install express
 
-EXPOSE 3000  
+EXPOSE 80  
 
 CMD ["node", "server.js"]
